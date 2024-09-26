@@ -68,3 +68,26 @@ function printString(a: string): void {
 }
 
 // let returnedValue: string = printString("this is a string"); // string is not assignable to type void
+
+import { checkbox, Separator, input } from "@inquirer/prompts";
+
+// checkbox prompt
+const checkBox = async () => {
+  const answer = await checkbox({
+    message: "Select a package manager",
+    choices: [
+      { name: "npm", value: "npm" },
+      { name: "yarn", value: "yarn" },
+      new Separator("--separator--"),
+      { name: "pnpm", value: "pnpm", disabled: true },
+      {
+        name: "pnpm",
+        value: "pnpm",
+        disabled: "(pnpm is not available)",
+      },
+    ],
+  });
+  console.log(answer);
+};
+
+checkBox();
