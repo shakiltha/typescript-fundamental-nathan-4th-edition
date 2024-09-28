@@ -84,3 +84,23 @@ function checkDoorState(state: DoorState) {
 
 checkDoorState(DoorState.Open);
 checkDoorState(DoorState.Closed);
+
+enum DoorStateSpecificValues {
+  Open = 3,
+  Closed = 7,
+  Unspecified = 256,
+}
+
+// string enums
+enum DoorStateString {
+  OPEN = "Open",
+  CLOSED = "Closed",
+}
+console.log(`OPEN = ${DoorStateString.OPEN}`);
+
+// const enums
+const enum DoorStateConst {
+  Open = 10,
+  Closed = 20,
+}
+console.log(`const Open = ${DoorStateConst.Open}`);
