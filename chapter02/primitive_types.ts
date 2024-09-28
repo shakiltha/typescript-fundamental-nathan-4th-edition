@@ -185,3 +185,12 @@ printNestedOptionalChain({ aProperty: "another property" });
 printNestedOptionalChain({
   nestedProperty: "nested property",
 });
+
+// nullish coalescing
+function nullishCheck(a: number | undefined | null) {
+  console.log(`a: ${a ?? `null or undefined`}`);
+}
+
+nullishCheck(1);
+nullishCheck(null);
+nullishCheck(undefined);
