@@ -200,3 +200,11 @@ nullishCheck(undefined);
 function testNullOperands(a: number, b: number | null | undefined) {
   let addResult = a + (b ?? 0);
 }
+
+// definite assignment
+let globalString!: string;
+setGlobalString("this is a string");
+console.log(`globalString = ${globalString}`);
+function setGlobalString(value: string) {
+  globalString = value;
+}
