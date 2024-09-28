@@ -129,3 +129,59 @@ const value: number = 10;
 const message: string =
   value > 10 ? "value is larger than 10" : "value is less than 10";
 console.log(message);
+
+// optional chaining: testing for an object property before accessing it
+
+// interface ObjectA {
+//   nestedProperty: {
+//     name: string;
+//   }
+// }
+
+// let objetA = {
+//   nestedProperty: {
+//     name: "nestedPropertyName",
+//   },
+// };
+
+// function printNestedObject(obj: ObjectA) {
+//   console.log("obj.nestedProperty.name = " + obj.nestedProperty.name);
+// }
+
+function printNestedObject(obj: any) {
+  if (
+    obj != undefined &&
+    obj.nestedProperty != undefined &&
+    obj.nestedProperty.name
+  ) {
+    console.log(`name = ${obj.nestedProperty.name}`);
+  } else {
+    console.log(`name not found or undefined`);
+  }
+}
+
+printNestedObject(null);
+printNestedObject(undefined);
+printNestedObject({
+  aProperty: "another property",
+});
+printNestedObject({
+  nestedProperty: {
+    name: "nestedProperty",
+  },
+});
+
+// optional chaining using the syntax
+function printNestedOptionalChain(obj: any) {
+  if (obj?.nestedProperty?.name) {
+    console.log(`name = ${obj.nestedProperty.name}`);
+  } else {
+    console.log(`name not found or undefined`);
+  }
+}
+
+printNestedOptionalChain(undefined);
+printNestedOptionalChain({ aProperty: "another property" });
+printNestedOptionalChain({
+  nestedProperty: "nested property",
+});
