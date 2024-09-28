@@ -104,3 +104,21 @@ const enum DoorStateConst {
   Closed = 20,
 }
 console.log(`const Open = ${DoorStateConst.Open}`);
+
+// undefined
+let array = ["123", "456", "789"];
+delete array[0];
+
+for (let i = 0; i < array.length; i++) {
+  // array[0] = undefined
+  // console.log(`array[${i}] = ${array[i]}`);
+  checkAndPrintElement(array[i]);
+}
+
+function checkAndPrintElement(arrElement: string | undefined) {
+  if (arrElement === undefined) {
+    console.log(`invalid array element`);
+  } else {
+    console.log(`valid array element: ${arrElement}`);
+  }
+}
