@@ -122,3 +122,10 @@ function checkAndPrintElement(arrElement: string | undefined) {
     console.log(`valid array element: ${arrElement}`);
   }
 }
+
+// conditional expressions
+
+const value: number = 10;
+const message: string =
+  value > 10 ? "value is larger than 10" : "value is less than 10";
+console.log(message);
