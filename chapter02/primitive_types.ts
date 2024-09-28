@@ -55,3 +55,10 @@ function addWithTypeGuard(arg1: string | number, arg2: string | number) {
 console.log(`"1", "2" = ${addWithTypeGuard("1", "2")}`);
 console.log(`1, 2 = ${addWithTypeGuard(1, 2)}`);
 console.log(`1, "2" = ${addWithTypeGuard(1, "2")}`);
+
+// type aliases
+
+type StringOrNumber = string | number;
+function addWithTypeAlias(arg1: StringOrNumber, arg2: StringOrNumber) {
+  return arg1.toString() + arg2.toString();
+}
