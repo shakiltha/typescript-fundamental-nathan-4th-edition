@@ -62,3 +62,25 @@ type StringOrNumber = string | number;
 function addWithTypeAlias(arg1: StringOrNumber, arg2: StringOrNumber) {
   return arg1.toString() + arg2.toString();
 }
+
+// enums
+
+enum DoorState {
+  Open,
+  Closed,
+}
+
+function checkDoorState(state: DoorState) {
+  console.log(`enum value is: ${state}`);
+  switch (state) {
+    case DoorState.Open:
+      console.log(`Door is open`);
+      break;
+    case DoorState.Closed:
+      console.log(`Door is closed`);
+      break;
+  }
+}
+
+checkDoorState(DoorState.Open);
+checkDoorState(DoorState.Closed);
