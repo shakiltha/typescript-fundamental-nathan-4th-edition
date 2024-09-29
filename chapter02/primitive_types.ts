@@ -261,3 +261,29 @@ let idObj: object = { id: 1 };
 
 let obj3 = { ...nameObj, ...idObj };
 console.log(`obj3 = ${JSON.stringify(obj3)}`);
+
+// spread precedence
+
+let objectPrec1: object = { id: 1, name: "obj1 name" };
+let objectPrec2: object = { id: 1001, desc: "obj2 description" };
+
+let objPrec3 = { ...objectPrec1, ...objectPrec2 };
+console.log(`objPrec3 : ${JSON.stringify(objPrec3, null, 4)}`);
+
+// spread with arrays
+let firstArray: number[] = [1, 2, 4];
+let secondArray: number[] = [3, 4, 5];
+let thirdArray: Array<number> = [...firstArray, ...secondArray];
+console.log(`third array = ${thirdArray}`);
+
+let objectArray1: object[] = [{ id: 1, name: "first element" }];
+
+let objectArray2: object[] = [{ id: 2, name: "second element" }];
+
+let objectArray3: object[] = [
+  ...objectArray1,
+  { id: 3, name: "third element" },
+  ...objectArray2,
+];
+
+console.log(`objArray3 = ${JSON.stringify(objectArray3, null, 4)}`);
