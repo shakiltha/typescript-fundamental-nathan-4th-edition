@@ -287,3 +287,18 @@ let objectArray3: object[] = [
 ];
 
 console.log(`objArray3 = ${JSON.stringify(objectArray3, null, 4)}`);
+
+// tuples
+let tuple1: [string, boolean];
+tuple1 = ["test", true];
+
+// tuple1 = {"test"};
+
+// tuple destructuring
+console.log(`tuple1[0] : ${tuple1[0]}`);
+console.log(`tuple1[1] : ${tuple1[1]}`);
+// console.log(`tuple1[2] : ${tuple1[2]}`)
+
+let [tupleString, tupleBoolean] = tuple1;
+console.log(`tupleString = ${tupleString}`);
+console.log(`tupleString = ${tupleBoolean}`);
