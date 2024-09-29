@@ -317,3 +317,20 @@ let tupleRest: [number, ...string[]];
 tupleRest = [1];
 tupleRest = [1, "string1"];
 tupleRest = [1, "str1", "str2", "str3"];
+
+// object destructuring
+let complexObject = {
+  aNum: 1,
+  bStr: "name",
+  cBool: true,
+};
+
+let { aNum, bStr, cBool } = complexObject;
+console.log(`aNum : ${aNum}`);
+console.log(`aNum : ${bStr}`);
+console.log(`aNum : ${cBool}`);
+
+let { aNum: objId, bStr: objName, cBool: isValid } = complexObject;
+console.log(`objId : ${objId}`);
+console.log(`objId : ${objName}`);
+console.log(`objId : ${isValid}`);
