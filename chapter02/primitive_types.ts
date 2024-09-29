@@ -302,3 +302,12 @@ console.log(`tuple1[1] : ${tuple1[1]}`);
 let [tupleString, tupleBoolean] = tuple1;
 console.log(`tupleString = ${tupleString}`);
 console.log(`tupleString = ${tupleBoolean}`);
+
+// optional tuple elements
+
+let tupleOptional: [string, boolean?];
+tupleOptional = ["test", true];
+tupleOptional = ["test"];
+
+console.log(`tupleOptional[0] : ${tupleOptional[0]}`);
+console.log(`tupleOptional[1] : ${tupleOptional[1]}`);
