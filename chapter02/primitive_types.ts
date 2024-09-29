@@ -311,3 +311,9 @@ tupleOptional = ["test"];
 
 console.log(`tupleOptional[0] : ${tupleOptional[0]}`);
 console.log(`tupleOptional[1] : ${tupleOptional[1]}`);
+
+// tuple and spread syntax
+let tupleRest: [number, ...string[]];
+tupleRest = [1];
+tupleRest = [1, "string1"];
+tupleRest = [1, "str1", "str2", "str3"];
