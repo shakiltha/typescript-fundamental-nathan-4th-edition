@@ -330,6 +330,7 @@ console.log(`aNum : ${aNum}`);
 console.log(`aNum : ${bStr}`);
 console.log(`aNum : ${cBool}`);
 
+// rename but not type assertion
 let { aNum: objId, bStr: objName, cBool: isValid } = complexObject;
 console.log(`objId : ${objId}`);
 console.log(`objId : ${objName}`);
