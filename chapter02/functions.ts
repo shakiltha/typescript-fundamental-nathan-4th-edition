@@ -15,3 +15,13 @@ function concatWithDefault(a: string, b: string = "default") {
 
 concatWithDefault("first", "second");
 concatWithDefault("third ");
+
+// rest parameters
+function testArguments(...args: string[] | number[]) {
+  for (let i in args) {
+    console.log(`args[${i}] = ${args[i]}`);
+  }
+}
+
+testArguments(1, 2);
+testArguments("first", "second", "third");
