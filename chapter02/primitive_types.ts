@@ -223,3 +223,41 @@ function printObjectType(a: object) {
 }
 
 printObjectType(structuredObject);
+
+// never
+function alwaysThrows(): never {
+  throw new Error("this will always throw");
+  // return -1; // unreachable code detected
+}
+
+// never in practice
+enum AnEnum {
+  FIRST,
+  SECOND,
+}
+
+function getEnumValue(enumValue: AnEnum): string {
+  switch (enumValue) {
+    case AnEnum.FIRST:
+      return "first case";
+    case AnEnum.SECOND:
+      return "second case";
+  }
+  let returnValue: never = enumValue;
+  return returnValue;
+}
+
+console.log(getEnumValue(AnEnum.FIRST));
+
+// object spread
+
+let firstObj: object = { id: 1, name: "firstObject" };
+let secondObj: object = { ...firstObj };
+
+console.log(`secondObj : ${JSON.stringify(secondObj)}`);
+
+let nameObj: object = { name: "nameobj name" };
+let idObj: object = { id: 1 };
+
+let obj3 = { ...nameObj, ...idObj };
+console.log(`obj3 = ${JSON.stringify(obj3)}`);
