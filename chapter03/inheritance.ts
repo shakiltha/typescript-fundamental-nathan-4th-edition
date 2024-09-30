@@ -32,3 +32,27 @@ let multipleObject: IMultiple = {
   name: "shakil",
   description: "software developer",
 };
+
+// class inheritance
+class BaseClass implements IBase {
+  id: number = 0;
+}
+
+// javascript don't support multiple inheritance in classes
+class DerivedFromBaseClass extends BaseClass implements IDerivedFromBase {
+  name: string = "nameString";
+}
+
+// but a class can implement multiple interfaces
+interface IFirstInterface {
+  id: number;
+}
+
+interface ISecondInterface {
+  name: string;
+}
+
+class MultipleInterfaces implements IFirstInterface, ISecondInterface {
+  id: number = 0;
+  name: string = "name string";
+}
