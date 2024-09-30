@@ -75,3 +75,15 @@ class ClassWithPrivateProperty {
 
 let privateAccess = new ClassWithPrivateProperty(20);
 // privateAccess.id = 30;
+
+// ES6 private fields
+
+class ClassES6Private {
+  #id: number; // es6 private field. prefix props with # symbol
+  constructor(id: number) {
+    this.#id = id;
+  }
+}
+
+let es6PrivateClass = new ClassES6Private(10);
+// es6PrivateClass.#id = 40;
