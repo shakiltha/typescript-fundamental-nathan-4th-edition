@@ -1,9 +1,9 @@
 // interfaces and optional properties
 
-interface IIdName {
-  id: number;
-  name: string;
-}
+// interface IIdName {
+//   id: number;
+//   name: string;
+// }
 
 let idObject: IIdName = {
   id: 2,
@@ -57,3 +57,18 @@ function printNameOrValue(obj: IIdName | IDescrValue): void {
 
 printNameOrValue({ id: 1, name: "nameValue" });
 printNameOrValue({ descr: "description", value: 2 });
+
+// keyof
+interface IPerson {
+  id: number;
+  name: string;
+}
+
+type PersonPropertyName = keyof IPerson;
+
+function getProperty(key: PersonPropertyName, value: IPerson) {
+  console.log(`${key} = ${value[key]}`);
+}
+getProperty("id", { id: 1, name: "firstName" });
+getProperty("name", { id: 2, name: "secondName" });
+// getProperty("telephone", { id: 3, name: "thirdName" });
