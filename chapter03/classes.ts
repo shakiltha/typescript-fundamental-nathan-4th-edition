@@ -46,3 +46,32 @@ let classC = new ClassC();
 printClass(classA);
 printClass(classB);
 printClass(classC);
+
+// class constructors
+class ClassWithConstructor {
+  id: number;
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+
+let classWithConstructor = new ClassWithConstructor(10);
+console.log(`classWithConstructor = ${JSON.stringify(classWithConstructor)}`);
+
+// class modifiers
+class ClassWithPublicProperty {
+  public id: number | undefined;
+}
+
+let publicAccess = new ClassWithPublicProperty();
+publicAccess.id = 10;
+
+class ClassWithPrivateProperty {
+  private id: number;
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+
+let privateAccess = new ClassWithPrivateProperty(20);
+// privateAccess.id = 30;
