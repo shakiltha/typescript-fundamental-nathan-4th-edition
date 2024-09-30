@@ -105,6 +105,24 @@ class ClassWithReadonly {
     this.name = _name;
   }
   setNameValue(_name: string) {
-    this.name = _name;
+    // this.name = _name;
   }
 }
+
+// getter and setter accessors
+
+class ClassWithAccessors {
+  private _id: number = 0;
+  get id(): number {
+    console.log(`get id property`);
+    return this._id;
+  }
+  set id(value: number) {
+    console.log(`set id property`);
+    this._id = value;
+  }
+}
+
+let classWithAccessors = new ClassWithAccessors();
+classWithAccessors.id = 10;
+console.log(`classWithAccessors.id = ${classWithAccessors.id}`);
