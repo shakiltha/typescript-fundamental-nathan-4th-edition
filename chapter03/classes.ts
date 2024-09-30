@@ -151,3 +151,12 @@ firstInstance.updateCount();
 console.log(`StaticProperty.count = ${StaticProperty.count}`);
 secondInstance.updateCount();
 console.log(`StaticProperty.count = ${StaticProperty.count}`);
+
+// namespaces
+namespace FirstNameSpace {
+  export class NameSpaceClass {}
+  class NotExported {}
+}
+
+let nameSpaceClass = new FirstNameSpace.NameSpaceClass();
+// let notExported = new FirstNameSpace.NotExported();
