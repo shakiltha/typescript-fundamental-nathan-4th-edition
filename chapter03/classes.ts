@@ -78,12 +78,21 @@ let privateAccess = new ClassWithPrivateProperty(20);
 
 // ES6 private fields
 
-class ClassES6Private {
-  #id: number; // es6 private field. prefix props with # symbol
-  constructor(id: number) {
-    this.#id = id;
-  }
+// class ClassES6Private {
+//   #id: number; // es6 private field. prefix props with # symbol
+//   constructor(id: number) {
+//     this.#id = id;
+//   }
+// }
+
+// let es6PrivateClass = new ClassES6Private(10);
+// es6PrivateClass.#id = 40;
+
+// constructor parameter properties
+class ClassWithCtorMods {
+  constructor(public id: number, private name: string) {}
 }
 
-let es6PrivateClass = new ClassES6Private(10);
-// es6PrivateClass.#id = 40;
+let myClassMod = new ClassWithCtorMods(1, "test");
+console.log(`myClassMod.id = ${myClassMod.id}`);
+// console.log(`myClassMod.id = ${myClassMod.name}`);
