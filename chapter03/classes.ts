@@ -96,3 +96,15 @@ class ClassWithCtorMods {
 let myClassMod = new ClassWithCtorMods(1, "test");
 console.log(`myClassMod.id = ${myClassMod.id}`);
 // console.log(`myClassMod.id = ${myClassMod.name}`);
+
+// readonly
+
+class ClassWithReadonly {
+  readonly name: string;
+  constructor(_name: string) {
+    this.name = _name;
+  }
+  setNameValue(_name: string) {
+    this.name = _name;
+  }
+}
