@@ -126,3 +126,28 @@ class ClassWithAccessors {
 let classWithAccessors = new ClassWithAccessors();
 classWithAccessors.id = 10;
 console.log(`classWithAccessors.id = ${classWithAccessors.id}`);
+
+// static functions
+class StaticFunction {
+  static printTwo() {
+    console.log("2");
+  }
+}
+
+StaticFunction.printTwo();
+
+// static properties
+class StaticProperty {
+  static count = 0;
+  updateCount() {
+    StaticProperty.count++;
+  }
+}
+
+let firstInstance = new StaticProperty();
+let secondInstance = new StaticProperty();
+
+firstInstance.updateCount();
+console.log(`StaticProperty.count = ${StaticProperty.count}`);
+secondInstance.updateCount();
+console.log(`StaticProperty.count = ${StaticProperty.count}`);
