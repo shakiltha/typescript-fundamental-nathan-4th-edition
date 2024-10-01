@@ -56,3 +56,22 @@ class MultipleInterfaces implements IFirstInterface, ISecondInterface {
   id: number = 0;
   name: string = "name string";
 }
+
+// the super keyword
+
+class BaseClassWithCtor {
+  private id: number;
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+
+class DerivedFromBaseClassWithCtor extends BaseClassWithCtor {
+  private name: string;
+  constructor(id: number, name: string) {
+    super(id);
+    this.name = name;
+  }
+}
+
+let derivedClassInstance = new DerivedFromBaseClassWithCtor(1, "test");
