@@ -159,3 +159,17 @@ jackManager.employees.push(joeBlogg);
 jackManager.employees.push(jillBlogg);
 
 jackManager.manageEmployees();
+
+// instanceof operator
+
+class A {}
+class BfromA extends A {}
+class CfromA extends A {}
+class DfromC extends CfromA {}
+
+console.log(`A instance of A : ${new A() instanceof A}`);
+console.log(`BfromA instance of A : ${new BfromA() instanceof A}`);
+console.log(`BfromA  instance of BfromA : ${new BfromA() instanceof BfromA}`);
+console.log(`CfromA  instance of BfromA : ${new CfromA() instanceof BfromA}`);
+console.log(`DfromC instance of CfromA : ${new DfromC() instanceof CfromA}`);
+console.log(`CfromC instance of A : ${new DfromC() instanceof A}`);
