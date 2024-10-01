@@ -123,3 +123,39 @@ class AccessProtected extends BaseClassProtected {
 let accessProtected = new AccessProtected(1);
 // accessProtected.id = 1;
 // accessProtected.name = "test";
+
+// abstract classes
+abstract class EmployeeBase {
+  public id: number;
+  public name: string;
+  abstract doWork(): void;
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+}
+
+class OfficeWorker extends EmployeeBase {
+  doWork(): void {
+    console.log(`${this.name} : doing work`);
+  }
+}
+
+class OfficeManager extends OfficeWorker {
+  public employees: OfficeWorker[] = [];
+  manageEmployees() {
+    super.doWork();
+    for (let employee of this.employees) {
+      employee.doWork();
+    }
+  }
+}
+
+let joeBlogg = new OfficeWorker(1, "Joe");
+let jillBlogg = new OfficeWorker(2, "Jill");
+let jackManager = new OfficeManager(3, "Jack");
+
+jackManager.employees.push(joeBlogg);
+jackManager.employees.push(jillBlogg);
+
+jackManager.manageEmployees();
