@@ -75,3 +75,29 @@ class DerivedFromBaseClassWithCtor extends BaseClassWithCtor {
 }
 
 let derivedClassInstance = new DerivedFromBaseClassWithCtor(1, "test");
+
+// function overriding
+
+class BaseClassWithFn {
+  print(text: string) {
+    console.log(`BaseClassWithFn.print() : ${text}`);
+  }
+}
+
+class DerivedClassFnOverride extends BaseClassWithFn {
+  print(text: string) {
+    console.log(`DerivedClassFunctionOverride.print(${text})`);
+  }
+}
+
+let derivedClassFnOverride = new DerivedClassFnOverride();
+derivedClassFnOverride.print("test");
+
+class DerivedClassFnThrough extends BaseClassWithFn {
+  print(text: string) {
+    super.print(`from DerivedClassFncallthrough: ${text}`);
+  }
+}
+
+let derivedCallthrough = new DerivedClassFnThrough();
+derivedCallthrough.print("text");
