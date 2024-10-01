@@ -101,3 +101,25 @@ class DerivedClassFnThrough extends BaseClassWithFn {
 
 let derivedCallthrough = new DerivedClassFnThrough();
 derivedCallthrough.print("text");
+
+// protected
+
+class BaseClassProtected {
+  protected id: number;
+  private name: string = "";
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+
+class AccessProtected extends BaseClassProtected {
+  constructor(id: number) {
+    super(id);
+    console.log(`base.id = ${this.id}`);
+    // console.log(`base.name = ${this.name}`);
+  }
+}
+
+let accessProtected = new AccessProtected(1);
+// accessProtected.id = 1;
+// accessProtected.name = "test";
