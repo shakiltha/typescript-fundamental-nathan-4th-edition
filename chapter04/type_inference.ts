@@ -150,3 +150,21 @@ type inferredTypeFromArray<T> = T extends (infer U)[] ? U : never;
 function testInferredFromArray<T>(args: inferredTypeFromArray<T>) {}
 testInferredFromArray<string[]>("test");
 testInferredFromArray<number[]>(1);
+
+// standard conditional types
+// exclude
+type ExcludeStringAndNumber = Exclude<
+  string | number | boolean,
+  string | number
+>;
+
+let boolValue: ExcludeStringAndNumber = true;
+
+// extract
+type StringOrNumber1 = Extract<string | boolean | never, string | number>;
+
+let stringValue: StringOrNumber1 = "test";
+
+// nonnullable
+type NotNullOrUndef = NonNullable<number | undefined | null>;
+let numValue: NotNullOrUndef = 1;
