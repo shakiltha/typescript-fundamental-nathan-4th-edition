@@ -104,3 +104,16 @@ let printObject1: IPrint = {
 
 let logClass = new LogClass();
 logClass.logToConsole(printObject1);
+
+// generics new objects within generics
+
+class Class1A {
+  id: number = 1;
+}
+class Class1B {}
+
+function createClassInstance<T>(arg1: { new (): T }): T {
+  return new arg1();
+}
+
+let classAInstance = createClassInstance(ClassA);
