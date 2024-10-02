@@ -19,3 +19,25 @@ usingTwoTypes<number, string>(1, "string");
 usingTwoTypes(1, "string");
 usingTwoTypes<boolean, boolean>(true, false);
 usingTwoTypes("first", "second");
+
+// constraining the type of T
+class Concatenator<T extends Array<string> | Array<number>> {
+  public concatenateArray(items: T): string {
+    let returnString = "";
+    for (let i = 0; i < items.length; i++) {
+      returnString += i > 0 ? "," : "";
+      returnString += items[i].toString();
+    }
+    return returnString;
+  }
+}
+
+let concator = new Concatenator();
+
+let concatResult = concator.concatenateArray(["first", "second", "result"]);
+console.log(`concatResult = ${concatResult}`);
+
+concatResult = concator.concatenateArray([1000, 2000, 3000]);
+console.log(`concatResult = ${concatResult}`);
+
+concatResult = concator.concatenateArray([true, false, true]);
