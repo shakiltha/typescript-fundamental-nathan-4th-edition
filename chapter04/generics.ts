@@ -59,3 +59,23 @@ function useT<T extends IPrintId | IPrintName>(item: T): void {
   // item.id = 1;
   // item.name = "test";
 }
+
+// generic constraints
+
+function printProperty<T, K extends keyof T>(object: T, key: K) {
+  let propertyValue = object[key];
+  console.log(`object[${String(key)}] = ${propertyValue}`);
+}
+
+let obj1 = {
+  id: 1,
+  name: "MyName",
+  print() {
+    console.log(`${this.id}`);
+  },
+};
+
+printProperty(obj1, "id");
+printProperty(obj1, "name");
+// printProperty(obj1, "surname");
+printProperty(obj1, "print");
