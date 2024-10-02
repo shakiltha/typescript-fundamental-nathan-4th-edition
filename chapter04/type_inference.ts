@@ -121,3 +121,11 @@ compareValues(1, 2);
 compareValues("test", new Date());
 compareValues("test", 1);
 compareValues("test", "test");
+
+// conditional type inference
+
+type inferFromPropertyType<T> = T extends { id: infer U } ? U : never;
+
+function testInferFromPropertyType<T>(arg: inferFromPropertyType<T>) {}
+testInferFromPropertyType<{ id: string }>("test");
+testInferFromPropertyType<{ id: number }>(1);
