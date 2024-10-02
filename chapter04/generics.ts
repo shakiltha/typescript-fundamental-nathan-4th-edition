@@ -40,4 +40,22 @@ console.log(`concatResult = ${concatResult}`);
 concatResult = concator.concatenateArray([1000, 2000, 3000]);
 console.log(`concatResult = ${concatResult}`);
 
-concatResult = concator.concatenateArray([true, false, true]);
+// concatResult = concator.concatenateArray([true, false, true]);
+
+// using the type T
+
+interface IPrintId {
+  id: number;
+  print(): void;
+}
+
+interface IPrintName {
+  name: string;
+  print(): void;
+}
+
+function useT<T extends IPrintId | IPrintName>(item: T): void {
+  item.print();
+  // item.id = 1;
+  // item.name = "test";
+}
