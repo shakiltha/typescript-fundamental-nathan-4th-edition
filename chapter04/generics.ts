@@ -79,3 +79,28 @@ printProperty(obj1, "id");
 printProperty(obj1, "name");
 // printProperty(obj1, "surname");
 printProperty(obj1, "print");
+
+// generic interfaces
+
+interface IPrint {
+  print(): void;
+}
+
+interface ILogInterface<T extends IPrint> {
+  logToConsole(iPrintObj: T): void;
+}
+
+class LogClass<T extends IPrint> implements ILogInterface<T> {
+  logToConsole(iPrintObj: T): void {
+    iPrintObj.print();
+  }
+}
+
+let printObject1: IPrint = {
+  print() {
+    console.log(`printObject.print() called`);
+  },
+};
+
+let logClass = new LogClass();
+logClass.logToConsole(printObject1);
