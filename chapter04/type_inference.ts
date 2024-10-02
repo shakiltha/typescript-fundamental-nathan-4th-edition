@@ -143,3 +143,10 @@ function testInferredFromReturnType<T>(arg: inferredFromFnReturnType<T>) {}
 
 testInferredFromReturnType<(a: string) => number>(1);
 testInferredFromReturnType<(a: string) => boolean>(false);
+
+// type inference from arrays (infer U) -> is conditional type inference syntax
+type inferredTypeFromArray<T> = T extends (infer U)[] ? U : never;
+
+function testInferredFromArray<T>(args: inferredTypeFromArray<T>) {}
+testInferredFromArray<string[]>("test");
+testInferredFromArray<number[]>(1);
