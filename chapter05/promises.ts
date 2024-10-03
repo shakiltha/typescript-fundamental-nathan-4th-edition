@@ -66,3 +66,18 @@ function delayedPromise(): Promise<void> {
 delayedPromise()
   .then(() => console.log(`delayed promise returned`))
   .catch(() => console.log(`an error occurred`));
+
+// promise errors
+
+function errorPromise(): Promise<void> {
+  return new Promise<void>((resolve: () => void, reject: () => void) => {
+    // function definition
+    console.log(`2. calling reject()`);
+    reject();
+  });
+}
+
+console.log(`1. calling errorPromise()`);
+errorPromise()
+  .then(() => {})
+  .catch(() => console.log(`3. caught an error`));
