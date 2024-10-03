@@ -81,3 +81,28 @@ console.log(`1. calling errorPromise()`);
 errorPromise()
   .then(() => {})
   .catch(() => console.log(`3. caught an error`));
+
+// promise returning values
+
+function promiseReturningString(throwError: Boolean): Promise<string> {
+  return new Promise<string>(
+    (
+      resolve: (outputValue: string) => void,
+      reject: (errorCode: number) => void
+    ) => {
+      if (throwError) {
+        reject(101);
+      }
+      resolve(`resolve with message`);
+    }
+  );
+}
+
+console.log(`1. calling promiseReturningString`);
+promiseReturningString(true)
+  .then((returnValue) => {
+    console.log(`2. returnedValue : ${returnValue}`);
+  })
+  .catch((errorCode) => {
+    console.log(`2. caught : ${errorCode}`);
+  });
