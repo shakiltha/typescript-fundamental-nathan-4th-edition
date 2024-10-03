@@ -62,3 +62,7 @@ function delayedPromise(): Promise<void> {
     setTimeout(afterTimeout, 1000);
   });
 }
+
+delayedPromise()
+  .then(() => console.log(`delayed promise returned`))
+  .catch(() => console.log(`an error occurred`));
