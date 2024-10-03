@@ -40,3 +40,25 @@ fs.promises
   .catch((error) => {
     console.log(`an error occurred : ${error}`);
   });
+
+// writing a promise
+
+function fnDelayedPromise(resolve: () => void, reject: () => void) {
+  function afterTimeout() {
+    resolve();
+  }
+  setTimeout(afterTimeout, 1000);
+}
+
+function delayedResponsePromise(): Promise<void> {
+  return new Promise<void>(fnDelayedPromise);
+}
+
+function delayedPromise(): Promise<void> {
+  return new Promise<void>((resolve: () => void, reject: () => void) => {
+    function afterTimeout() {
+      resolve();
+    }
+    setTimeout(afterTimeout, 1000);
+  });
+}
