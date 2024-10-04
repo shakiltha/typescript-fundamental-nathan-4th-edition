@@ -14,7 +14,7 @@ async function callDelayedPromise() {
   console.log(`3. after calling delayedPromise`);
 }
 
-callDelayedPromise();
+// callDelayedPromise();
 
 // await errors
 
@@ -38,4 +38,25 @@ async function callErrorPromise() {
   }
 }
 
-callErrorPromise();
+// callErrorPromise();
+
+// await values
+
+function promiseWithValues(): Promise<string[]> {
+  return new Promise<string[]>(
+    (resolve: (values: string[]) => void, reject: (error: string) => void) => {
+      setTimeout(() => {
+        resolve(["first", "second"]);
+      }, 1000);
+    }
+  );
+}
+
+async function getValuesPromise() {
+  let values = await promiseWithValues();
+  for (let value of values) {
+    console.log(`value : ${value}`);
+  }
+}
+
+getValuesPromise();
