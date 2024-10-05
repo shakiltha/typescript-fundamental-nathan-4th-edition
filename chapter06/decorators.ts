@@ -80,3 +80,27 @@ let classInstance = new ClassWithConstructor(1);
 console.log(
   `classInstance.testProperty = ${(<any>classInstance).testProperty}`
 );
+
+// property decorators
+
+function propertyDec(target: any, propertyName: string) {
+  // console.log(`target : ${target}`);
+  // console.log(`target.constructor : ${target.constructor}`);
+  if (typeof target === "function") {
+    console.log(`class name : ${target.name}`);
+  } else {
+    console.log(`class name : ` + `${target.constructor.name}`);
+  }
+  console.log(`propertyName : ${propertyName}`);
+}
+
+class ClassWithPropertyDec {
+  @propertyDec
+  nameProperty: string | undefined;
+}
+
+// static property decorators
+class StaticClassWithPropertyDec {
+  @propertyDec
+  static staticProperty: string;
+}
