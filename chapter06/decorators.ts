@@ -124,3 +124,34 @@ class ClassWithMethodDec {
     console.log(`ClassWithMethodDec.print` + `(${output}) called.`);
   }
 }
+
+// using method decorators
+
+function auditLogDec(
+  target: any,
+  methodName: string,
+  descriptor?: PropertyDescriptor
+) {
+  let originalFunction = target[methodName];
+
+  let auditFunction = function (this: any) {
+    console.log(`1. auditLogDec : override of ` + ` ${methodName} called`);
+
+    for (let i = 0; i < arguments.length; i++) {
+      console.log(`2. arg : ${i} = ${arguments[i]}`);
+    }
+    originalFunction.apply(this, arguments);
+  };
+  target[methodName] = auditFunction;
+  return target;
+}
+
+class ClassWithAuditDec {
+  @auditLogDec
+  print(arg1: string, arg2: string) {
+    console.log(`3. ClassWithMethodDoc.print` + `(${arg1}, ${arg2} called)`);
+  }
+}
+
+let auditClass = new ClassWithAuditDec();
+auditClass.print("test1", "test2");
