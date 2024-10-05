@@ -52,3 +52,14 @@ class ClassWithAllTypesOfDecorators {
 
   setId(@parameterDecorator id: number) {}
 }
+
+// decorator factories
+
+function decoratorFactories(name: string) {
+  return (constructor: Function) => {
+    console.log(`decoration function called with : ${name}`);
+  };
+}
+
+@decoratorFactories("test name")
+class ClassWithDecoratorFactory {}
