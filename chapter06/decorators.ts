@@ -167,3 +167,15 @@ function parameterDec(target: any, methodName: string, parameterIndex: number) {
 class ClassWithParamDec {
   print(@parameterDec value: string) {}
 }
+
+// decorator metadata
+
+function metadataParameterDec(
+  target: any,
+  methodName: string,
+  parameterIndex: number
+) {}
+
+class ClassWithMetadata {
+  print(@metadataParameterDec id: number, name: string) {}
+}
