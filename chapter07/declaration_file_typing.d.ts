@@ -55,3 +55,21 @@ declare function sort<T extends number | string>(input: Array<T>): Array<T> {};
 
 let sortedStringArray: Array<string> = sort(["first", "second"]);
 let sortedStringArray: Array<number> = sort([1, 2, 3, 4, 5]);
+
+// distributed conditional types
+declare type stringOrNumberOrBoolean<T> = T extends string
+  ? string
+  : T extends number
+  ? number
+  : T extends boolean
+  ? boolean
+  : never;
+
+type myNever = stringOrNumberOrBoolean<[string, number]>;
+
+// conditional type inference
+
+declare type inferFromPropertyType<T> = T extends { id: infer U } ? U : never;
+
+type myString = inferFromPropertyType<{ id: string }>;
+type myNumber = inferFromPropertyType<{ id: number }>;
