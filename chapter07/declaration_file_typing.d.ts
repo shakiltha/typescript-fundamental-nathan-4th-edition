@@ -21,3 +21,22 @@ declare module FirstNamespace {
 }
 
 FirstNamespace.SecondNamespace.ThirdNamespace.log("test");
+
+// classes
+
+declare class MyModuleClass {
+  public print(): void;
+}
+
+let myClass = new MyModuleClass();
+myClass.print();
+
+// static classes properties
+
+declare class MyModuleStatic {
+  static print(): void;
+  static id: number;
+}
+
+MyModuleStatic.print();
+MyModuleStatic.id;
