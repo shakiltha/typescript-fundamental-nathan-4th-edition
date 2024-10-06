@@ -40,3 +40,12 @@ declare class MyModuleStatic {
 
 MyModuleStatic.print();
 MyModuleStatic.id;
+
+// abstract classes
+declare abstract class MyModuleAbstract {
+  abstract print(): void;
+}
+
+class DerivedFromAbstract extends MyModuleAbstract {
+  print() {}
+}
