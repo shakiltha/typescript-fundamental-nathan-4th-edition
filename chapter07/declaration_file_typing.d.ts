@@ -49,3 +49,9 @@ declare abstract class MyModuleAbstract {
 class DerivedFromAbstract extends MyModuleAbstract {
   print() {}
 }
+
+// generics
+declare function sort<T extends number | string>(input: Array<T>): Array<T> {};
+
+let sortedStringArray: Array<string> = sort(["first", "second"]);
+let sortedStringArray: Array<number> = sort([1, 2, 3, 4, 5]);
