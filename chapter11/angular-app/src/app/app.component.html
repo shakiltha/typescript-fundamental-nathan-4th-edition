@@ -1,1 +1,18 @@
 <app-header></app-header>
+<mat-sidenav-container class="full-height-container">
+  <mat-sidenav
+    #sidenav
+    mode="over"
+    class="content-padding"
+    [fixedInViewport]="true"
+    [fixedToGap]="60"
+    [opened]="false"
+  >
+    Login from to go here.
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content-padding">Main content goes here</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet></router-outlet>
