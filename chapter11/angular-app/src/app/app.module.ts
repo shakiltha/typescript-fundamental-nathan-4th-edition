@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { BroadcastService } from './services/broadcast.service';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, HeaderComponent, UserDetailsComponent],
   imports: [AppRoutingModule, SharedModule],
   providers: [BroadcastService],
   bootstrap: [AppComponent],
