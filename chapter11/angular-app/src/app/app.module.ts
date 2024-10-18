@@ -7,9 +7,10 @@ import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { BroadcastService } from './services/broadcast.service';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, UserDetailsComponent],
+  declarations: [AppComponent, HeaderComponent, UserDetailsComponent, LoginComponent],
   imports: [AppRoutingModule, SharedModule],
   providers: [BroadcastService],
   bootstrap: [AppComponent],
