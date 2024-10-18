@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { BroadcastService, EventKeys } from '../services/broadcast.service';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-user-details',
@@ -8,7 +9,13 @@ import { BroadcastService, EventKeys } from '../services/broadcast.service';
 })
 export class UserDetailsComponent implements OnInit {
   loggedInUserName: string = 'logged_in_user';
-  constructor(private broadcastService: BroadcastService) {}
+  isLoggedIn: boolean = false;
+  constructor(private broadcastService: BroadcastService) {
+    _.bindAll(this, 'loginSuccessful');
+    this.broadcastService
+      .on(EventKeys.USER_LOGIN_EVENT)
+      .subscribe(this.loginSuccessful);
+  }
   ngOnInit(): void {}
   @Output() notify = new EventEmitter();
   onLoginClicked() {
@@ -18,5 +25,15 @@ export class UserDetailsComponent implements OnInit {
       EventKeys.LOGIN_BUTTON_CLICKED,
       'UserDetailsComponent: LOGIN_BUTTON_CLICKED'
     );
+  }
+
+  loginSuccessful(event: any): void {
+    console.log(`UserDetailsComponent.loginSuccessful : ${event}`);
+    this.loggedInUserName = event;
+    this.isLoggedIn = true;
+  }
+  onLogoutClicked(): void {
+    this.loggedInUserName = '';
+    this.isLoggedIn = false;
   }
 }
