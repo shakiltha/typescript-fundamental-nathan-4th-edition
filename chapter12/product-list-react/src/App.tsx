@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import { MyButton } from "./MyButton";
 
 // function App() {
 //   return (
@@ -23,9 +23,20 @@ import "./App.css";
 //   );
 // }
 
-class App extends React.Component {
+export interface IAppProps {}
+
+class App extends React.Component<IAppProps> {
+  constructor(props: IAppProps) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
   render(): React.ReactNode {
-    return <div>Hello TSX</div>;
+    return (
+      <MyButton buttonName="Click here" handleButtonClick={this.handleClick} />
+    );
+  }
+  handleClick() {
+    console.log(`App.handleClick() called`, this);
   }
 }
 
