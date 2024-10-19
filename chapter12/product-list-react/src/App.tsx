@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import { MyButton } from "./MyButton";
+import { Collection } from "./Products";
+import { CollectionView } from "./CollectionView";
 
 // function App() {
 //   return (
@@ -28,6 +30,8 @@ export interface IAppState {
   showDetails: boolean;
 }
 
+const collectionInstance = new Collection();
+
 class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
@@ -38,13 +42,16 @@ class App extends React.Component<IAppProps, IAppState> {
   }
   render(): React.ReactNode {
     return (
-      <>
-        <MyButton
+      <div>
+        {/* <MyButton
           buttonName="Click here"
           handleButtonClick={this.handleClick}
-        />
-        <p>showDetails = {this.state.showDetails ? "true" : "false"}</p>
-      </>
+        /> */}
+        <CollectionView
+          {...collectionInstance}
+          handleItemClicked={this.showDetailView}
+        ></CollectionView>
+      </div>
     );
   }
   handleClick() {
