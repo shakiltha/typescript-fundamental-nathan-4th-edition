@@ -24,7 +24,7 @@ import "./App.css";
 // }
 
 class App extends React.Component {
-  render() {
+  render(): React.ReactNode {
     return <div>Hello TSX</div>;
   }
 }
