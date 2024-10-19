@@ -1,5 +1,7 @@
 import React from "react";
 import { Collection } from "./Products";
+import { ItemView } from "./ItemView";
+import { Box } from "@mui/material";
 
 export class CollectionView extends React.Component<Collection> {
   constructor(props: Collection) {
