@@ -37,11 +37,12 @@ const collectionInstance = new Collection();
 class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
     this.state = {
       showDetails: false,
       product: null,
     };
+    this.showDetailView = this.showDetailView.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
   render(): React.ReactNode {
     return (
@@ -62,12 +63,12 @@ class App extends React.Component<IAppProps, IAppState> {
       </div>
     );
   }
-  handleClick() {
-    console.log(`App.handleClick() called`, this);
-    this.setState({
-      showDetails: !this.state.showDetails,
-    });
-  }
+  // handleClick() {
+  //   console.log(`App.handleClick() called`, this);
+  //   this.setState({
+  //     showDetails: !this.state.showDetails,
+  //   });
+  // }
   showDetailView(id: number) {
     let foundItem = collectionInstance.items.find((item) => item.id === id);
     if (foundItem) {
