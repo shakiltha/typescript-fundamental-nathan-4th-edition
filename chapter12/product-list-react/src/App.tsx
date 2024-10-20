@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
 import { MyButton } from "./MyButton";
-import { Collection } from "./Products";
+import { Collection, IProduct } from "./Products";
 import { CollectionView } from "./CollectionView";
+import { DetailView } from "./DetailView";
 
 // function App() {
 //   return (
@@ -28,6 +29,7 @@ import { CollectionView } from "./CollectionView";
 export interface IAppProps {}
 export interface IAppState {
   showDetails: boolean;
+  product: IProduct | null;
 }
 
 const collectionInstance = new Collection();
@@ -38,6 +40,7 @@ class App extends React.Component<IAppProps, IAppState> {
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       showDetails: false,
+      product: null,
     };
   }
   render(): React.ReactNode {
@@ -51,6 +54,11 @@ class App extends React.Component<IAppProps, IAppState> {
           {...collectionInstance}
           handleItemClicked={this.showDetailView}
         ></CollectionView>
+        <DetailView
+          open={this.state.showDetails}
+          product={this.state.product}
+          handleClose={this.handleClose}
+        ></DetailView>
       </div>
     );
   }
@@ -58,6 +66,22 @@ class App extends React.Component<IAppProps, IAppState> {
     console.log(`App.handleClick() called`, this);
     this.setState({
       showDetails: !this.state.showDetails,
+    });
+  }
+  showDetailView(id: number) {
+    let foundItem = collectionInstance.items.find((item) => item.id === id);
+    if (foundItem) {
+      this.setState({
+        showDetails: true,
+        product: foundItem,
+      });
+    }
+  }
+  handleClose() {
+    console.log(`App: handleClose()`);
+    this.setState({
+      showDetails: false,
+      product: null,
     });
   }
 }

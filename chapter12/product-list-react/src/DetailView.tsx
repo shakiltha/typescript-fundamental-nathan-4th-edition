@@ -30,7 +30,7 @@ export interface IDetailsState {
   noSwitches: number;
 }
 
-const transition = React.forwardRef(function Transition(
+const Transition = React.forwardRef(function Transition(
   props: TransitionProps & { children?: React.ReactElement },
   ref: React.Ref<unknown>
 ) {
@@ -54,7 +54,7 @@ export class DetailView extends React.Component<IDetailsProps, IDetailsState> {
         <Dialog
           fullScreen
           open={this.props.open}
-          TransitionComponent={transition}
+          TransitionComponent={Transition}
         >
           <AppBar>
             <Toolbar>
