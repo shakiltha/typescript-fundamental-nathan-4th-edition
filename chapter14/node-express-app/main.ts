@@ -12,6 +12,8 @@ app.set("view engine", "hbs");
 app.use(`/`, Index.router);
 app.use(`/`, Login.router);
 
+app.use(express.static(path.join(__dirname, "resources")));
+
 import config from "config";
 
 enum ConfigOptions {
