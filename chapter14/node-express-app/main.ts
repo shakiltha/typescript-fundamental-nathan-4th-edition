@@ -5,12 +5,12 @@ let app = express();
 import * as Index from "./routes/index";
 import * as Login from "./routes/login";
 
+import * as path from "path";
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "handlebars");
+
 app.use(`/`, Index.router);
 app.use(`/`, Login.router);
-
-app.listen(3001, () => {
-  console.log(`listening on port 3001`);
-});
 
 import config from "config";
 
