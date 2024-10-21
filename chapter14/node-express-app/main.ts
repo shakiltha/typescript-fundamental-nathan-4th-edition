@@ -7,7 +7,7 @@ import * as Login from "./routes/login";
 
 import * as path from "path";
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "handlebars");
+app.set("view engine", "hbs");
 
 app.use(`/`, Index.router);
 app.use(`/`, Login.router);
