@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.3.12",
     "express": "^4.21.1"
   },
   "devDependencies": {
+    "@types/config": "^3.3.5",
     "@types/express": "^5.0.0"
   }
 }
