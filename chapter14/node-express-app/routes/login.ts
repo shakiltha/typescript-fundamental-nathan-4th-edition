@@ -8,4 +8,11 @@ router.get(`/login`, (req: express.Request, res: express.Response) => {
   });
 });
 
+router.post(
+  `/login`,
+  (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.log(`req.body.username : ${req.body.username}`);
+  }
+);
+
 export { router };
