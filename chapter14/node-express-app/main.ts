@@ -10,9 +10,17 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
 import bodyParser from "body-parser";
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+import expressSession from "express-session";
+app.use(
+  expressSession({
+    secret: `abcdefghjkl`,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use(`/`, Index.router);
 app.use(`/`, Login.router);
