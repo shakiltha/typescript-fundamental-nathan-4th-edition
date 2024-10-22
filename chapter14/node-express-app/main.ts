@@ -9,6 +9,11 @@ import * as path from "path";
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
+import bodyParser from "body-parser";
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(`/`, Index.router);
 app.use(`/`, Login.router);
 
